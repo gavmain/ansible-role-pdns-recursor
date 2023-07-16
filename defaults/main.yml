@@ -1,8 +1,5 @@
 ---
 forward_zones:
-  - "internal":
-      "ips":
-       - "172.17.0.2"
   - ".":
       "ips":
        - "1.1.1.2"
