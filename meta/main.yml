@@ -1,0 +1,17 @@
+---
+
+galaxy_info:
+  role_name: pdns-recursor
+  namespace: gavmain
+  author: Gav Main
+  description: Install and configure pdns-recursor
+  license: MIT-0
+  min_ansible_version: 2.9.0
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - pdns-recursor
+    - pdns
+dependencies: []

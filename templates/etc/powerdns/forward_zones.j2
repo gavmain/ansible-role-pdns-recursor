@@ -1,0 +1,5 @@
+{% for i in forward_zones %}
+  {% for k, v in i.items() %}
++{{ k }}={{ v['ips'] | join(",") }}
+  {% endfor %}
+{% endfor %}

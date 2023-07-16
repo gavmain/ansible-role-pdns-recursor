@@ -1,0 +1,44 @@
+---
+- name: Gather instance facts
+  setup:
+
+- name: Install pdns-recursor
+  ansible.builtin.package:
+    name: pdns-recursor
+    state: present
+
+- name: Blocklist.lua
+  ansible.builtin.file:
+    src: etc/powerdns/blocklist.lua
+    dest: /etc/powerdns/blocklist.lua
+    owner: root
+    group: root
+    mode: 0644
+    state: present
+
+- name: Generate forward zones
+  template:
+    src: etc/powerdns/forward_zones.j2
+    dest: /etc/powerdns/forward_zones
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart pdns-recursor
+
+- name: Generate custom config
+  template:
+    src: etc/powerdns/recursor.d/custom.conf.j2
+    dest: /etc/powerdns/recursor.d/custom.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - restart pdns-recursor
+
+
+- name: Enable and start pdns-recursor
+  ansible.builtin.systemd:
+    name: pdns-recursor
+    state: started
+    enabled: true
