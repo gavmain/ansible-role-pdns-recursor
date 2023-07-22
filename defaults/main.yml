@@ -2,7 +2,7 @@
 forward_zones:
   - ".":
       "ips":
-       - "1.1.1.2"
-       - "1.0.0.2"
+       - "1.1.1.1"
+       - "8.8.8.8"
 
-listen_address: "127.0.0.1"
+listen_address: "0.0.0.0"

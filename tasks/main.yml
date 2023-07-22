@@ -8,13 +8,12 @@
     state: present
 
 - name: Blocklist.lua
-  ansible.builtin.file:
+  ansible.builtin.copy:
     src: etc/powerdns/blocklist.lua
     dest: /etc/powerdns/blocklist.lua
     owner: root
     group: root
     mode: 0644
-    state: present
 
 - name: Generate forward zones
   template:
