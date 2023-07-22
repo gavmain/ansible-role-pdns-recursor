@@ -1,3 +1,4 @@
 forward-zones-file=/etc/powerdns/forward_zones
-local-address={{ listen_address }}
+local-address={{ local_address }}
+allow-from={{ allow_from }}
 lua-dns-script=/etc/powerdns/blocklist.lua
